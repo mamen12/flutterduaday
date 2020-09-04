@@ -1,0 +1,56 @@
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.grey[200],
+        appBar: AppBar(
+          title: Text("Pens Day 1"),
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            buildContainer("todoList 1", Colors.red),
+            buildContainer("todoList 2", Colors.blue),
+            buildContainer("todoList 3", Colors.green),
+            buildContainer("todoList 4", Colors.red),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Container buildContainer(String text, Color color) {
+    return Container(
+      margin: EdgeInsets.all(10),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(5),
+        child: Container(
+          padding: EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border(
+              left: BorderSide(width: 5.0, color: color),
+            ),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                text,
+                style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20,
+                    color: Colors.lightBlue[900]),
+              ),
+              Icon(
+                Icons.favorite_border,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
